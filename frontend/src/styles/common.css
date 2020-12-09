@@ -1,0 +1,60 @@
+body {
+  margin: 0px;
+  height: 100%;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  background-color: #2e2f32;
+  height: 100%;
+  min-height: 100vh;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+
+.b-icon.bi {
+  vertical-align: middle !important;
+}
+th {
+  background-color: #2c3e50;
+}
+td {
+  background-color: #404146;
+}
+.table-hover tr:hover > td{
+  color: #dedede;
+  background-color: #4e4f55;
+}
+.linkBtn {
+  cursor: pointer;
+}
+.linkBtn:hover {
+  color: #007bff;
+}
+.page-link {
+  color: white !important;
+  background-color: #6c757d !important;
+  border: 1px solid #838e97 !important;
+}
+.page-link:hover {
+  background-color: #2c3e50 !important;
+  border: 1px solid #2c3e50 !important;
+}
+.active .page-link {
+  background-color: #2c3e50 !important;
+}
