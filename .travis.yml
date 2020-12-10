@@ -8,17 +8,8 @@ before_install:
   - docker build -t docker-front ./frontend
 
 script: 
-  - docker run -e CI=true -it -p 8080:80 docker-front -- --coverage
+  - docker run -e CI=true docker-react-app -- --coverage
 
-deploy:
-  edge: true
-  provider: elasticbeanstalk
-  region: ap-northeast-2
-  app: yourgg
-  env: Yourgg-env
-  bucket_name: elasticbeanstalk-ap-northeast-2-607275276429
-  bucket_path: yourgg
-  on:
-    branch: main
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_ACCESS_KEY
+after_success:
+  - echo "script run"
+
