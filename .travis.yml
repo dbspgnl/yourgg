@@ -2,12 +2,9 @@ language: generic
 
 services:
   - docker
-  
+
 script: 
-  - docker build -t docker-frontend ./frontend
-  - docker build -t docker-backend ./backend
-  - docker run -e CI=true -p 8080:80 docker-frontend 
-  - docker run -e CI=true -p 3000:3000 docker-backend 
+  - docker-compose up 
 
 deploy:
   edge: true
@@ -18,6 +15,6 @@ deploy:
   bucket_name: elasticbeanstalk-ap-northeast-2-607275276429
   bucket_path: yourgg
   on:
-    branch: master
+    branch: main
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_ACCESS_KEY
