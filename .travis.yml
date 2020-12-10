@@ -4,13 +4,11 @@ services:
   - docker
 
 before_install:
-  - echo "dockerfile build starting"
+  - echo "start creating an image with dockerfile"
+  - docker build -t docker-front ./frontend
 
 script: 
-  - docker-compose up
-
-after_success:
-  - echo "docker-compose up"
+  - docker run -e CI=true -it -p 8080:80 docker-front -- --coverage
 
 deploy:
   edge: true
