@@ -3,8 +3,14 @@ language: generic
 services:
   - docker
 
+before_install:
+  - echo "dockerfile build starting"
+
 script: 
-  - docker-compose up 
+  - docker-compose up
+
+after_success:
+  - echo "docker-compose up"
 
 deploy:
   edge: true
