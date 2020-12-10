@@ -1,0 +1,23 @@
+language: generic
+
+services:
+  - docker
+  
+script: 
+  - docker build -t docker-frontend ./frontend
+  - docker build -t docker-backend ./backend
+  - docker run -e CI=true -p 8080:80 docker-frontend 
+  - docker run -e CI=true -p 3000:3000 docker-backend 
+
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: ap-northeast-2
+  app: yourgg
+  env: Yourgg-env
+  bucket_name: elasticbeanstalk-ap-northeast-2-607275276429
+  bucket_path: yourgg
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
